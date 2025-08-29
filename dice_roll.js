@@ -1,3 +1,7 @@
+function is_critical(num_sides, dice_val) {
+    return num_sides == dice_val;
+}
+
 function roll_dice(num_sides) {
     const min = 1;
     const inclusive = num_sides + 1;
@@ -12,13 +16,20 @@ function main() {
     const num_dice = Number(document.getElementById("num_dice").value);
     const threshold = Number(document.getElementById("threshold").value);
     var count = 0;
+    var critical = 0;
 
     for (let a = 0; a < num_dice; a++) {
         let dice_val = roll_dice(num_sides);
 
+        if (is_critical(num_sides, dice_val)) {
+            critical++;
+            continue;
+        } 
+        
         if (dice_val >= threshold) {
             count++;
         }
+        
     }
-    alert("There are " + count + " dice that rolled " + threshold + " or greater");
+    alert(count + " hits\n" + critical + " critical hits");
 }
