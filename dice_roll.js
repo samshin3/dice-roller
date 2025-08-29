@@ -11,10 +11,26 @@ function roll_dice(num_sides) {
     return val;
 }
 
+function threshold_by_cmp(strength, toughness) {
+    if (strength >= toughness * 2) {
+        return 2;
+    } else if (strength > toughness) {
+        return 3;
+    } else if (strength == toughness) {
+        return 4;
+    } else if (strength * 2 <= toughness) {
+        return 6;
+    } else {
+        return 5;
+    }
+}
+
 function main() {
     const num_sides = Number(document.getElementById("num_sides").value);
     const num_dice = Number(document.getElementById("num_dice").value);
-    const threshold = Number(document.getElementById("threshold").value);
+    const strength = Number(document.getElementById("strength").value);
+    const toughness = Number(document.getElementById("toughness").value);
+    let threshold = threshold_by_cmp(strength, toughness);
     var count = 0;
     var critical = 0;
 
@@ -31,5 +47,5 @@ function main() {
         }
         
     }
-    alert(count + " hits\n" + critical + " critical hits");
+    alert(count + " hits\n" + critical + " critical hits\n" + "Threshold: " + threshold);
 }
