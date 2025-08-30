@@ -47,5 +47,8 @@ function main() {
         }
         
     }
-    alert(count + " hits\n" + critical + " critical hits\n" + "Threshold: " + threshold);
+
+    document.getElementById("hits").innerHTML = "Hits: " + count;
+    document.getElementById("critical").innerHTML = "Critical Hits: " + critical;
+    document.getElementById("threshold").innerHTML = "Threshold: " + threshold;
 }

@@ -23,9 +23,17 @@
         <label for="toughness">Opponent's Toughness</label>
         <input type="number" id="toughness"><br><br>
 
-        <button onclick="main()">Roll!</button>
+        <button onclick="main()">Roll!</button><br><br>
 
         <script src="dice_roll.js"></script>
+        
+        <label for="roll_result">Results:</label><br><br>
+
+        <div id="roll_result">
+            <p id = "hits"></p>
+            <p id = "critical"></p>
+            <p id = "threshold"></p>
+        </div>
 
     </body>
 
