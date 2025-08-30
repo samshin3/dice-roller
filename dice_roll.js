@@ -30,7 +30,15 @@ function main() {
     const num_dice = Number(document.getElementById("num_dice").value);
     const strength = Number(document.getElementById("strength").value);
     const toughness = Number(document.getElementById("toughness").value);
-    let threshold = threshold_by_cmp(strength, toughness);
+    const hit_wound = String(document.getElementById("hit_wound").value);
+    let threshold;
+
+    if (hit_wound === hit) {
+        threshold = Number(document.getElementById("threshold").value);
+    } else {
+        threshold = threshold_by_cmp(strength, toughness);
+    }
+    
     var count = 0;
     var critical = 0;
 
