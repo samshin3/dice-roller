@@ -33,12 +33,12 @@ function main() {
     const hit_wound = String(document.getElementById("hit_wound").value);
     let threshold;
 
-    if (hit_wound === hit) {
+    if (hit_wound === "hit") {
         threshold = Number(document.getElementById("threshold").value);
     } else {
         threshold = threshold_by_cmp(strength, toughness);
     }
-    
+
     var count = 0;
     var critical = 0;
 
@@ -58,5 +58,5 @@ function main() {
 
     document.getElementById("hits").innerHTML = "Hits: " + count;
     document.getElementById("critical").innerHTML = "Critical Hits: " + critical;
-    document.getElementById("threshold").innerHTML = "Threshold: " + threshold;
+    document.getElementById("threshold_result").innerHTML = "Threshold: " + threshold;
 }
